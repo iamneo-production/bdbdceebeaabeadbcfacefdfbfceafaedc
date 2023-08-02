@@ -16,7 +16,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
     
-    @PostMapping("/saveTask")
+    @PostMapping("/savaTask")
     public Task saveTask(@RequestBody Task task) {
         return taskService.saveTask(task);
     }
