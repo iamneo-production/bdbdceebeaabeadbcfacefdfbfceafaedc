@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins="*")
+@RequestMapping("api/v1/")
 public class TaskController {
     
     @Autowired
@@ -25,11 +27,7 @@ public class TaskController {
      public Task changeTaskStatus(@RequestParam String id, @RequestParam String status) {
          return taskService.changeTaskStatus(id, status);
      }
-    
-    @GetMapping("/deleteTask")
-    public void deleteTask(@RequestParam String id) {
-        taskService.deleteTask(id);
-    }
+
     
     @GetMapping("/alltasks")
     public List<Task> getAllTasks() {
@@ -39,5 +37,10 @@ public class TaskController {
     @GetMapping("/getTask")
     public Task getTaskByTaskId(@RequestParam String id) {
         return taskService.getTaskByTaskId(id);
+    }
+
+    @GetMapping("/deleteTask")
+    public void deleteTask(@RequestParam String id) {
+        taskService.deleteTask(id);
     }
 }
