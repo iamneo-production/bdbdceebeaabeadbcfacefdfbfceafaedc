@@ -12,12 +12,12 @@ public class TaskService {
     @Autowired
     private TaskRepository repository;
 
-    public Taskentity saveTask(Taskentity taskentity){
+    public Task saveTask(Task taskentity){
         repository.save(taskentity);
         return taskentity;
     }
 
-    public Taskentity updatetaskStatus(String taskId){
+    public Task updatetaskStatus(String taskId){
         Optional<Taskentity> taskentity = repository.findByTaskId(taskId);
         if(taskentity.isPresent()){
             taskentity.get().setTaskStatus("Accepted");
@@ -30,7 +30,7 @@ public class TaskService {
 
 
     public String deleteTask(String id){
-        Optional<Taskentity> taskentity = repository.findByTaskId(id);
+        Optional<Task> taskentity = repository.findByTaskId(id);
         if(taskentity.isPresent()){
             repository.deleteByTaskId(id);
             return"Task Deleted Successfully";
@@ -39,12 +39,12 @@ public class TaskService {
     }
 
 
-    public List<Taskentity> getallTasks(){
+    public List<Task> getallTasks(){
         return repository.findAll();
     }
 
-    public Taskentity gettaskbyid(String id){
-        Optional<Taskentity> taskentity = repository.findByTaskId(id);
+    public Task gettaskbyid(String id){
+        Optional<Task> taskentity = repository.findByTaskId(id);
         if(taskentity.isPresent()){
             return taskentity.get();
         }

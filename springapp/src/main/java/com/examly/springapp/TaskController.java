@@ -1,7 +1,6 @@
-package com.examly.springapp.controller;
+package com.examly.springapp;
 
-import com.examly.springapp.entity.Taskentity;
-import com.examly.springapp.service.TaskService;
+import com.examly.springapp.TaskService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +39,7 @@ public class TaskController {
     }
 
     @GetMapping("/getTask")
-    private Taskentity getTask(@RequestParam("id") String id){
+    private Task getTask(@RequestParam("id") String id){
         return service.gettaskbyid(id);
     }
 
