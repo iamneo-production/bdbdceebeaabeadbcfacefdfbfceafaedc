@@ -1,4 +1,4 @@
-package com.examly.springapp.service;
+package com.examly.springapp;
 
 import java.util.List;
 import com.examly.springapp.repository.TaskRepository;
