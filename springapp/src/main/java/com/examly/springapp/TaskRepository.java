@@ -1,4 +1,4 @@
-package com.examly.springapp;
+package com.examly.springapp.repository;
 
 import com.examly.springapp.entity.Taskentity;
 import org.springframework.data.jpa.repository.JpaRepository;
