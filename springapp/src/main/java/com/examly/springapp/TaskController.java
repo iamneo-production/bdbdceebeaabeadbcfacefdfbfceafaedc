@@ -21,10 +21,10 @@ public class TaskController {
         return taskService.saveTask(task);
     }
     
-    @GetMapping("/changeStatus")
-    public Task changeTaskStatus(@RequestParam String id, @RequestParam String status) {
-        return taskService.changeTaskStatus(id, status);
-    }
+     @GetMapping("/changeStatus")
+     public Task changeTaskStatus(@RequestParam String id, @RequestParam String status) {
+         return taskService.changeTaskStatus(id, status);
+     }
     
     @GetMapping("/deleteTask")
     public void deleteTask(@RequestParam String id) {
