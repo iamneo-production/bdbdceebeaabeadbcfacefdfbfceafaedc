@@ -1,9 +1,9 @@
 package com.examly.springapp;
 
-import com.examly.springapp.TaskService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,14 +18,14 @@ public class TaskController {
     private TaskService service;
     
     @PostMapping("/saveTask")
-    public Taskentity saveTask(@RequestBody Taskentity taskentity){
-        Taskentity output = service.saveTask(taskentity);
+    public Task saveTask(@RequestBody Task taskentity){
+        Task output = service.saveTask(taskentity);
         return output;
     }
 
 
     @GetMapping("/changeStatus")
-    private Taskentity updatetaskStatus(@RequestParam("id") String id){
+    private Task updatetaskStatus(@RequestParam("id") String id){
         return service.updatetaskStatus(id);
     }
 
@@ -34,7 +34,7 @@ public class TaskController {
         return service.deleteTask(id);
     }
     @GetMapping("/alltasks")
-    private List<Taskentity> getallTasks(){
+    private List<Task> getallTasks(){
         return service.getallTasks();
     }
 
